@@ -1,0 +1,77 @@
+﻿@using findmyvaxnc.Models;
+@model ModelCollection;
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+<div class="middle">
+    <h2>Location Data</h2>
+    <br />
+    <br />
+    <div class="table">
+        <table cellpadding="0" cellspacing="0" border="1">
+            <tr>
+                <th>&nbsp; County &nbsp;</th>
+                <th>&nbsp; Name &nbsp;</th>
+                <th>&nbsp; Address &nbsp;</th>
+                <th>&nbsp; Phone Number &nbsp;</th>
+                <th>&nbsp; Hours &nbsp;</th>
+                <th>&nbsp; Appointment Type &nbsp;</th>
+                <th>&nbsp; Website &nbsp;</th>
+                <th>&nbsp; Date Verified &nbsp;</th>
+            </tr>
+            @foreach (var location in Model.locationView)
+            {
+            <tr>
+                <td>&nbsp; @location.County &nbsp;</td>
+                <td>&nbsp; @location.Name &nbsp;</td>
+                <td>&nbsp; @location.Address &nbsp;</td>
+                <td>&nbsp; @location.Phone &nbsp;</td>
+                <td>&nbsp; @location.Hours &nbsp;</td>
+                <td>&nbsp; @location.AppointmentType &nbsp;</td>
+                <td>&nbsp; <a href="@location.Website" target="_blank"> @location.WebsiteName</a> &nbsp;</td>
+                <td>&nbsp; @location.Verified &nbsp;</td>
+            </tr>
+            }
+        </table>
+    </div>
+    <br />
+    <h2>Testing Data</h2>
+    <br />
+    <br />
+    <div class="table">
+        <table cellpadding="0" cellspacing="0" border="1">
+            <tr>
+                <th>&nbsp; County &nbsp;</th>
+                <th>&nbsp; Name &nbsp;</th>
+                <th>&nbsp; Address &nbsp;</th>
+                <th>&nbsp; Phone Number &nbsp;</th>
+                <th>&nbsp; Test Type &nbsp;</th>
+                <th>&nbsp; Result Response Time &nbsp;</th>
+                <th>&nbsp; Age Requirement &nbsp;</th>
+                <th>&nbsp; Screening Requirement &nbsp;</th>
+                <th>&nbsp; Appointment Type &nbsp;</th>
+                <th>&nbsp; Website &nbsp;</th>
+                <th>&nbsp; Date Verified &nbsp;</th>
+            </tr>
+            @foreach (var testing in Model.testView)
+            {
+            <tr>
+                <td>&nbsp; @testing.County &nbsp;</td>
+                <td>&nbsp; @testing.Name &nbsp;</td>
+                <td>&nbsp; @testing.Address &nbsp;</td>
+                <td>&nbsp; @testing.Phone &nbsp;</td>
+                <td>&nbsp; @testing.TestType &nbsp;</td>
+                <td>&nbsp; @testing.ResultResponse &nbsp;</td>
+                <td>&nbsp; @testing.AgeRequirement &nbsp;</td>
+                <td>&nbsp; @testing.ScreeningRequirement &nbsp;</td>
+                <td>&nbsp; @testing.AppointmentType &nbsp;</td>
+                <td>&nbsp; <a href="@testing.Website" target="_blank"> @testing.WebsiteName</a> &nbsp;</td>
+                <td>&nbsp; @testing.Verified &nbsp;</td>
+            </tr>
+            }
+        </table>
+    </div>
+</div>
