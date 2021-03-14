@@ -34,18 +34,21 @@ namespace findmyvaxnc.Controllers
                         var line = reader.ReadLine();
                         var values = line.Split(';');
 
-                        locations.Add(new LocationModel
+                        if (values.Length == 9)
                         {
-                            County = values[0],
-                            Name = values[1],
-                            Address = values[2],
-                            Phone = values[3],
-                            Hours = values[4],
-                            AppointmentType = values[5],
-                            WebsiteName = values[6],
-                            Website = values[7],
-                            Verified = values[8],
-                    });
+                            locations.Add(new LocationModel
+                            {
+                                County = values[0],
+                                Name = values[1],
+                                Address = values[2],
+                                Phone = values[3],
+                                Hours = values[4],
+                                AppointmentType = values[5],
+                                WebsiteName = values[6],
+                                Website = values[7],
+                                Verified = values[8],
+                            });
+                        }
 
                     }
                 }
@@ -64,22 +67,24 @@ namespace findmyvaxnc.Controllers
 
                         var line = reader.ReadLine();
                         var values = line.Split(';');
-
-                        testingSites.Add(new TestingModel
+                        if (values.Length == 12)
                         {
-                            County = values[0],
-                            Name = values[1],
-                            Address = values[2],
-                            Phone = values[3],
-                            TestType = values[4],
-                            ResultResponse = values[5],
-                            AgeRequirement = values[6],
-                            ScreeningRequirement = values[7],
-                            AppointmentType = values[8],
-                            WebsiteName = values[9],
-                            Website = values[10],
-                            Verified = values[11]
-                        });
+                            testingSites.Add(new TestingModel
+                            {
+                                County = values[0],
+                                Name = values[1],
+                                Address = values[2],
+                                Phone = values[3],
+                                TestType = values[4],
+                                ResultResponse = values[5],
+                                AgeRequirement = values[6],
+                                ScreeningRequirement = values[7],
+                                AppointmentType = values[8],
+                                WebsiteName = values[9],
+                                Website = values[10],
+                                Verified = values[11]
+                            });
+                        }
                     }
                 }
                 returnView.testView = testingSites;
