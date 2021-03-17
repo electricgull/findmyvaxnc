@@ -7,11 +7,12 @@
 
 
 <div class="middle">
+    <br />
     <h2>Vaccine Location</h2>
     <br />
     <br />
     <div class="table">
-        <table cellpadding="0" cellspacing="0" border="1">
+        <table cellpadding="0" cellspacing="0" border="1" align="left">
             <tr>
                 <th>&nbsp; County &nbsp;</th>
                 <th>&nbsp; Name &nbsp;</th>
@@ -22,27 +23,28 @@
                 <th>&nbsp; Website &nbsp;</th>
                 <th>&nbsp; Date Verified &nbsp;</th>
             </tr>
-            @foreach (var location in Model.locationView)
+            @foreach (var location in Model.locationView.OrderBy(m => m.County).ThenBy(m => m.Name))
             {
-            <tr>
-                <td>&nbsp; @location.County &nbsp;</td>
-                <td>&nbsp; @location.Name &nbsp;</td>
-                <td>&nbsp; @location.Address &nbsp;</td>
-                <td>&nbsp; @location.Phone &nbsp;</td>
-                <td>&nbsp; @location.Hours &nbsp;</td>
-                <td>&nbsp; @location.AppointmentType &nbsp;</td>
-                <td>&nbsp; <a href="@location.Website" target="_blank"> @location.WebsiteName</a> &nbsp;</td>
-                <td>&nbsp; @location.Verified &nbsp;</td>
-            </tr>
+                <tr>
+                    <td>&nbsp; @location.County &nbsp;</td>
+                    <td>&nbsp; @location.Name &nbsp;</td>
+                    <td>&nbsp; @location.Address &nbsp;</td>
+                    <td>&nbsp; @location.Phone &nbsp;</td>
+                    <td>&nbsp; @location.Hours &nbsp;</td>
+                    <td>&nbsp; @location.AppointmentType &nbsp;</td>
+                    <td>&nbsp; <a href="@location.Website" target="_blank"> @location.WebsiteName</a> &nbsp;</td>
+                    <td>&nbsp; @location.Verified &nbsp;</td>
+                </tr>
             }
         </table>
+        <br />
     </div>
-    <br />
+    <p></p>
     <h2>Testing Sites</h2>
     <br />
     <br />
     <div class="table">
-        <table cellpadding="0" cellspacing="0" border="1">
+        <table cellpadding="0" cellspacing="0" border="1" align="left">
             <tr>
                 <th>&nbsp; County &nbsp;</th>
                 <th>&nbsp; Name &nbsp;</th>
@@ -56,21 +58,21 @@
                 <th>&nbsp; Website &nbsp;</th>
                 <th>&nbsp; Date Verified &nbsp;</th>
             </tr>
-            @foreach (var testing in Model.testView)
+            @foreach (var testing in Model.testView.OrderBy(m => m.County).ThenBy(m => m.Name))
             {
-            <tr>
-                <td>&nbsp; @testing.County &nbsp;</td>
-                <td>&nbsp; @testing.Name &nbsp;</td>
-                <td>&nbsp; @testing.Address &nbsp;</td>
-                <td>&nbsp; @testing.Phone &nbsp;</td>
-                <td>&nbsp; @testing.TestType &nbsp;</td>
-                <td>&nbsp; @testing.ResultResponse &nbsp;</td>
-                <td>&nbsp; @testing.AgeRequirement &nbsp;</td>
-                <td>&nbsp; @testing.ScreeningRequirement &nbsp;</td>
-                <td>&nbsp; @testing.AppointmentType &nbsp;</td>
-                <td>&nbsp; <a href="@testing.Website" target="_blank"> @testing.WebsiteName</a> &nbsp;</td>
-                <td>&nbsp; @testing.Verified &nbsp;</td>
-            </tr>
+                <tr>
+                    <td>&nbsp; @testing.County &nbsp;</td>
+                    <td>&nbsp; @testing.Name &nbsp;</td>
+                    <td>&nbsp; @testing.Address &nbsp;</td>
+                    <td>&nbsp; @testing.Phone &nbsp;</td>
+                    <td>&nbsp; @testing.TestType &nbsp;</td>
+                    <td>&nbsp; @testing.ResultResponse &nbsp;</td>
+                    <td>&nbsp; @testing.AgeRequirement &nbsp;</td>
+                    <td>&nbsp; @testing.ScreeningRequirement &nbsp;</td>
+                    <td>&nbsp; @testing.AppointmentType &nbsp;</td>
+                    <td>&nbsp; <a href="@testing.Website" target="_blank"> @testing.WebsiteName</a> &nbsp;</td>
+                    <td>&nbsp; @testing.Verified &nbsp;</td>
+                </tr>
             }
         </table>
     </div>
